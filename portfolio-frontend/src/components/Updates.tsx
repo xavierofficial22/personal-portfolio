@@ -51,7 +51,7 @@ function Updates() {
     if (count === 1) {
       return (
         <div
-          className="border-t border-neutral-800/50 cursor-pointer"
+          className="border-t border-[var(--color-card-border)] cursor-pointer"
           onClick={() => openLightbox(images, 0)}
         >
           <img
@@ -64,7 +64,7 @@ function Updates() {
     }
     if (count === 2) {
       return (
-        <div className="border-t border-neutral-800/50 grid grid-cols-2 gap-0.5">
+        <div className="border-t border-[var(--color-card-border)] grid grid-cols-2 gap-0.5">
           {images.map((img, i) => (
             <img
               key={i}
@@ -79,7 +79,7 @@ function Updates() {
     }
     if (count === 3) {
       return (
-        <div className="border-t border-neutral-800/50 grid grid-cols-2 gap-0.5">
+        <div className="border-t border-[var(--color-card-border)] grid grid-cols-2 gap-0.5">
           <img
             src={`${BACKEND_URL}${images[0]}`}
             alt=""
@@ -102,7 +102,7 @@ function Updates() {
     const shown = images.slice(0, 4);
     const remaining = count - 4;
     return (
-      <div className="border-t border-neutral-800/50 grid grid-cols-2 gap-0.5">
+      <div className="border-t border-[var(--color-card-border)] grid grid-cols-2 gap-0.5">
         {shown.map((img, i) => (
           <div
             key={i}
@@ -136,7 +136,7 @@ function Updates() {
             05
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             Updates
           </span>
         </div>
@@ -146,7 +146,7 @@ function Updates() {
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight mb-3">
             What's <span className="text-accent">new</span>.
           </h2>
-          <p className="text-neutral-500 text-sm flex items-center gap-2">
+          <p className="text-[var(--color-text-muted)] text-sm flex items-center gap-2">
             <Clock className="w-3.5 h-3.5" />
             Posts refresh every 24 hours
           </p>
@@ -155,15 +155,17 @@ function Updates() {
 
       <div className="max-w-2xl mx-auto">
         {loading ? (
-          <div className="flex items-center gap-3 text-neutral-500 text-sm">
+          <div className="flex items-center gap-3 text-[var(--color-text-muted)] text-sm">
             <span className="w-4 h-4 border-2 border-accent/30 border-t-accent rounded-full animate-spin" />
             Loading posts...
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20">
-            <MessageCircle className="w-10 h-10 text-neutral-700 mx-auto mb-4" />
-            <p className="text-neutral-500 text-sm">No recent updates.</p>
-            <p className="text-neutral-600 text-xs mt-1">
+            <MessageCircle className="w-10 h-10 text-[var(--color-text-faint)] mx-auto mb-4" />
+            <p className="text-[var(--color-text-muted)] text-sm">
+              No recent updates.
+            </p>
+            <p className="text-[var(--color-text-faint)] text-xs mt-1">
               Check back later for new posts.
             </p>
           </div>
@@ -172,7 +174,7 @@ function Updates() {
             {posts.map((post, index) => (
               <article
                 key={post.id}
-                className="bg-bg-2 border border-neutral-800/50 rounded-2xl overflow-hidden
+                className="bg-bg-2 border border-[var(--color-card-border)] rounded-2xl overflow-hidden
                            hover:border-accent/15 transition-all duration-300"
                 style={{
                   animationDelay: `${index * 100}ms`,
@@ -185,16 +187,18 @@ function Updates() {
                     GX
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-[var(--color-text)]">
                       Gian Xavier Aquino
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] text-neutral-500">
+                      <span className="text-[11px] text-[var(--color-text-muted)]">
                         {timeAgo(post.created_at)}
                       </span>
                       {post.category && (
                         <>
-                          <span className="text-neutral-700">Â·</span>
+                          <span className="text-[var(--color-text-faint)]">
+                            ·
+                          </span>
                           <span className="text-[11px] text-accent/70">
                             {post.category}
                           </span>
@@ -206,11 +210,11 @@ function Updates() {
 
                 {/* Post content */}
                 <div className="px-5 pb-4">
-                  <h3 className="text-[15px] font-semibold text-white mb-1.5">
+                  <h3 className="text-[15px] font-semibold text-[var(--color-text)] mb-1.5">
                     {post.title}
                   </h3>
                   {post.description && (
-                    <p className="text-sm text-neutral-400 leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
                       {post.description}
                     </p>
                   )}
@@ -222,8 +226,8 @@ function Updates() {
                   renderImages(post.images)}
 
                 {/* Timestamp footer */}
-                <div className="px-5 py-3 border-t border-neutral-800/50">
-                  <div className="flex items-center gap-1.5 text-[11px] text-neutral-600">
+                <div className="px-5 py-3 border-t border-[var(--color-card-border)]">
+                  <div className="flex items-center gap-1.5 text-[11px] text-[var(--color-text-faint)]">
                     <Clock className="w-3 h-3" />
                     <span>
                       {new Date(post.created_at).toLocaleString("en-US", {

@@ -29,7 +29,7 @@ function Contact() {
             06
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             Contact
           </span>
         </div>
@@ -38,7 +38,7 @@ function Contact() {
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight mb-6">
           Let's <span className="text-accent">connect</span>.
         </h2>
-        <p className="text-neutral-500 text-sm max-w-lg mb-14">
+        <p className="text-[var(--color-text-muted)] text-sm max-w-lg mb-14">
           Feel free to reach out for collaborations, opportunities, or just to
           say hello. I'm always happy to connect.
         </p>
@@ -47,17 +47,17 @@ function Contact() {
           {/* Email */}
           <a
             href="mailto:gianxavieraquino.official@gmail.com"
-            className="group flex items-start gap-4 p-5 rounded-xl bg-bg-2 border border-neutral-800/50
+            className="group flex items-start gap-4 p-5 rounded-xl bg-bg-2 border border-[var(--color-card-border)]
                        hover:border-accent/20 hover:bg-bg-3 transition-all duration-300"
           >
             <span className="shrink-0 mt-0.5 text-accent/60 group-hover:text-accent transition-colors">
               <Mail size={20} strokeWidth={1.5} />
             </span>
             <div>
-              <span className="text-[10px] tracking-widest uppercase text-neutral-600 font-medium block mb-1">
+              <span className="text-[10px] tracking-widest uppercase text-[var(--color-text-faint)] font-medium block mb-1">
                 Email
               </span>
-              <span className="text-sm text-white group-hover:text-accent transition-colors duration-200">
+              <span className="text-sm text-[var(--color-text)] group-hover:text-accent transition-colors duration-200">
                 gianxavieraquino.official@gmail.com
               </span>
             </div>
@@ -66,17 +66,17 @@ function Contact() {
           {/* Phone */}
           <a
             href="tel:+639298490815"
-            className="group flex items-start gap-4 p-5 rounded-xl bg-bg-2 border border-neutral-800/50
+            className="group flex items-start gap-4 p-5 rounded-xl bg-bg-2 border border-[var(--color-card-border)]
                        hover:border-accent/20 hover:bg-bg-3 transition-all duration-300"
           >
             <span className="shrink-0 mt-0.5 text-accent/60 group-hover:text-accent transition-colors">
               <Phone size={20} strokeWidth={1.5} />
             </span>
             <div>
-              <span className="text-[10px] tracking-widest uppercase text-neutral-600 font-medium block mb-1">
+              <span className="text-[10px] tracking-widest uppercase text-[var(--color-text-faint)] font-medium block mb-1">
                 Phone
               </span>
-              <span className="text-sm text-white group-hover:text-accent transition-colors duration-200">
+              <span className="text-sm text-[var(--color-text)] group-hover:text-accent transition-colors duration-200">
                 0929 849 0815
               </span>
             </div>
@@ -85,7 +85,7 @@ function Contact() {
 
         {/* Social links */}
         <div>
-          <span className="text-[10px] tracking-widest uppercase text-neutral-600 font-medium block mb-4">
+          <span className="text-[10px] tracking-widest uppercase text-[var(--color-text-faint)] font-medium block mb-4">
             Find me on
           </span>
           <div className="flex items-center gap-3">
@@ -95,8 +95,8 @@ function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-bg-2 border border-neutral-800/50
-                           text-neutral-400 hover:text-accent hover:border-accent/20 hover:bg-bg-3
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-bg-2 border border-[var(--color-card-border)]
+                           text-[var(--color-text-secondary)] hover:text-accent hover:border-accent/20 hover:bg-bg-3
                            transition-all duration-300 text-sm"
               >
                 {social.icon}
@@ -107,8 +107,8 @@ function Contact() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-20 pt-10 border-t border-neutral-800/30 text-center">
-          <p className="text-xs text-neutral-600">
+        <div className="mt-20 pt-10 border-t border-[var(--color-border)] text-center">
+          <p className="text-xs text-[var(--color-text-faint)]">
             © {new Date().getFullYear()} Gian Xavier Aquino. Built with React,
             TypeScript & Laravel.
           </p>

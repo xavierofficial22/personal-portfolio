@@ -17,7 +17,7 @@ function About() {
             01
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             About
           </span>
         </div>
@@ -32,14 +32,14 @@ function About() {
               <span className="text-accent">purpose</span>.
             </h2>
 
-            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed">
               I'm a software developer based in the Philippines with a strong
               foundation in web development. I enjoy building applications that
               are not only functional but also visually clean and intuitive to
               use.
             </p>
 
-            <p className="text-neutral-500 text-sm leading-relaxed">
+            <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">
               My toolkit includes React, TypeScript, and Tailwind CSS on the
               frontend, paired with Laravel with PHP and PostgreSQL on the
               backend.
@@ -63,13 +63,13 @@ function About() {
               {highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="p-5 rounded-xl bg-bg-2 border border-neutral-800/50
+                  className="p-5 rounded-xl bg-bg-2 border border-[var(--color-card-border)]
                              hover:border-accent/20 transition-colors duration-300"
                 >
-                  <span className="block text-3xl sm:text-4xl font-semibold text-white mb-1">
+                  <span className="block text-3xl sm:text-4xl font-semibold text-[var(--color-text)] mb-1">
                     {item.value}
                   </span>
-                  <span className="text-xs text-neutral-500 tracking-wide uppercase">
+                  <span className="text-xs text-[var(--color-text-muted)] tracking-wide uppercase">
                     {item.label}
                   </span>
                 </div>
@@ -77,8 +77,8 @@ function About() {
             </div>
 
             {/* Quick tech list */}
-            <div className="mt-6 p-5 rounded-xl bg-bg-2 border border-neutral-800/50">
-              <span className="text-xs text-neutral-500 tracking-wide uppercase block mb-3">
+            <div className="mt-6 p-5 rounded-xl bg-bg-2 border border-[var(--color-card-border)]">
+              <span className="text-xs text-[var(--color-text-muted)] tracking-wide uppercase block mb-3">
                 Core stack
               </span>
               <div className="flex flex-wrap gap-2">

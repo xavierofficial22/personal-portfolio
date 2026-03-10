@@ -53,7 +53,7 @@ function Certificates() {
             04
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             Certificates
           </span>
         </div>
@@ -63,19 +63,19 @@ function Certificates() {
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
             Earned & <span className="text-accent">verified</span>.
           </h2>
-          <p className="text-neutral-500 text-sm max-w-sm">
+          <p className="text-[var(--color-text-muted)] text-sm max-w-sm">
             Professional certifications and credentials that validate my skills
             and continuous learning.
           </p>
         </div>
 
         {loading ? (
-          <div className="flex items-center gap-3 text-neutral-500 text-sm">
+          <div className="flex items-center gap-3 text-[var(--color-text-muted)] text-sm">
             <span className="w-4 h-4 border-2 border-accent/30 border-t-accent rounded-full animate-spin" />
             Loading certificates...
           </div>
         ) : certs.length === 0 ? (
-          <p className="text-neutral-600 text-sm">
+          <p className="text-[var(--color-text-faint)] text-sm">
             No certificates to display yet.
           </p>
         ) : (
@@ -85,11 +85,11 @@ function Certificates() {
                 key={cert.id}
                 onClick={() => setSelected(cert)}
                 className="group text-left p-5 rounded-xl border transition-all duration-300
-                           bg-bg-2 border-neutral-800/50 hover:border-accent/20 hover:bg-bg-3"
+                           bg-bg-2 border-[var(--color-card-border)] hover:border-accent/20 hover:bg-bg-3"
               >
                 {/* Thumbnail preview */}
                 {cert.image && (
-                  <div className="mb-4 rounded-lg overflow-hidden bg-bg-3 border border-neutral-800/30">
+                  <div className="mb-4 rounded-lg overflow-hidden bg-bg-3 border border-[var(--color-border)]">
                     <img
                       src={cert.image}
                       alt={cert.name}
@@ -103,19 +103,19 @@ function Certificates() {
                   <span className="text-[10px] tracking-widest uppercase text-accent/60 font-medium">
                     {cert.issuer}
                   </span>
-                  <span className="text-[10px] text-neutral-600">
+                  <span className="text-[10px] text-[var(--color-text-faint)]">
                     {formatDate(cert.issue_date)}
                   </span>
                 </div>
 
                 {/* Name */}
-                <h3 className="text-sm font-medium text-white leading-snug mb-2 group-hover:text-accent transition-colors duration-200">
+                <h3 className="text-sm font-medium text-[var(--color-text)] leading-snug mb-2 group-hover:text-accent transition-colors duration-200">
                   {cert.full_name || cert.name}
                 </h3>
 
                 {/* Description preview */}
                 {cert.description && (
-                  <p className="text-xs text-neutral-500 leading-relaxed line-clamp-2">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed line-clamp-2">
                     {cert.description}
                   </p>
                 )}
@@ -141,27 +141,27 @@ function Certificates() {
 
           {/* Modal content */}
           <div
-            className="relative z-10 max-w-4xl w-full max-h-[90vh] flex flex-col rounded-2xl bg-bg-2 border border-neutral-800/50 overflow-hidden animate-fade-up"
+            className="relative z-10 max-w-4xl w-full max-h-[90vh] flex flex-col rounded-2xl bg-bg-2 border border-[var(--color-card-border)] overflow-hidden animate-fade-up"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-start justify-between gap-4 p-5 border-b border-neutral-800/50">
+            <div className="flex items-start justify-between gap-4 p-5 border-b border-[var(--color-divide)]">
               <div>
                 <span className="text-[10px] tracking-widest uppercase text-accent/60 font-medium">
                   {selected.issuer} · {formatDate(selected.issue_date)}
                 </span>
-                <h3 className="text-lg font-semibold text-white mt-1">
+                <h3 className="text-lg font-semibold text-[var(--color-text)] mt-1">
                   {selected.full_name || selected.name}
                 </h3>
                 {selected.description && (
-                  <p className="text-xs text-neutral-500 mt-1 max-w-lg">
+                  <p className="text-xs text-[var(--color-text-muted)] mt-1 max-w-lg">
                     {selected.description}
                   </p>
                 )}
               </div>
               <button
                 onClick={() => setSelected(null)}
-                className="shrink-0 p-2 rounded-lg text-neutral-500 hover:text-white hover:bg-neutral-800 transition-colors"
+                className="shrink-0 p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-bg-3 transition-colors"
               >
                 <X size={18} />
               </button>
@@ -176,19 +176,24 @@ function Certificates() {
                   className="max-w-full max-h-[65vh] object-contain rounded-lg"
                 />
               ) : (
-                <p className="text-neutral-600 text-sm">No image available.</p>
+                <p className="text-[var(--color-text-faint)] text-sm">
+                  No image available.
+                </p>
               )}
             </div>
 
             {/* Footer with meta */}
-            <div className="flex flex-wrap items-center gap-4 p-4 border-t border-neutral-800/50 text-xs">
+            <div className="flex flex-wrap items-center gap-4 p-4 border-t border-[var(--color-divide)] text-xs">
               {selected.score && (
-                <span className="text-neutral-400">
-                  Score: <span className="text-white">{selected.score}</span>
+                <span className="text-[var(--color-text-secondary)]">
+                  Score:{" "}
+                  <span className="text-[var(--color-text)]">
+                    {selected.score}
+                  </span>
                 </span>
               )}
               {selected.certificate_no && (
-                <span className="text-neutral-400 font-mono">
+                <span className="text-[var(--color-text-secondary)] font-mono">
                   ID: {selected.certificate_no}
                 </span>
               )}

@@ -706,9 +706,7 @@ function PostComposer({
   const [showCategoryInput, setShowCategoryInput] = useState(false);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>(
-    initial?.images
-      ? initial.images.map((img) => `${BACKEND_URL}${img}`)
-      : [],
+    initial?.images ? initial.images.map((img) => `${BACKEND_URL}${img}`) : [],
   );
   const [saving, setSaving] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);

@@ -3,10 +3,6 @@
 @theme {
   --font-poppins: "Poppins", system-ui, sans-serif;
 
-  --color-bg: #0a0a0b;
-  --color-bg-2: #111113;
-  --color-bg-3: #18181b;
-  --color-bg-4: #1c1c1f;
   --color-accent: #2da6fd;
   --color-accent-2: #0f70de;
   --color-accent-3: #0928fc;
@@ -16,6 +12,46 @@
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-in: fade-in 0.6s ease both;
   --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+}
+
+/* ── Dark mode (default) ─────────────────────── */
+:root.dark {
+  --color-bg: #0a0a0b;
+  --color-bg-2: #111113;
+  --color-bg-3: #18181b;
+  --color-bg-4: #1c1c1f;
+  --color-surface: #111113;
+  --color-text: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-faint: #52525b;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+  --color-card-border: rgba(82, 82, 91, 0.5);
+  --color-divide: rgba(82, 82, 91, 0.5);
+  --color-glass: rgba(17, 17, 19, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-selection-bg: rgba(45, 166, 253, 0.3);
+}
+
+/* ── Light mode ──────────────────────────────── */
+:root.light {
+  --color-bg: #fafafa;
+  --color-bg-2: #ffffff;
+  --color-bg-3: #f4f4f5;
+  --color-bg-4: #e4e4e7;
+  --color-surface: #ffffff;
+  --color-text: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #71717a;
+  --color-text-faint: #a1a1aa;
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border-hover: rgba(0, 0, 0, 0.12);
+  --color-card-border: rgba(0, 0, 0, 0.08);
+  --color-divide: rgba(0, 0, 0, 0.08);
+  --color-glass: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+  --color-selection-bg: rgba(45, 166, 253, 0.2);
 }
 
 @keyframes fade-up {
@@ -56,12 +92,15 @@ html {
 body {
   font-family: var(--font-poppins);
   background: var(--color-bg);
-  color: #fafafa;
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 ::selection {
-  background: rgba(45, 166, 253, 0.3);
-  color: #fafafa;
+  background: var(--color-selection-bg);
+  color: var(--color-text);
 }

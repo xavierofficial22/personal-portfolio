@@ -102,7 +102,7 @@ function Skills() {
             02
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             Skills
           </span>
         </div>
@@ -117,22 +117,22 @@ function Skills() {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className={`group p-5 rounded-xl bg-bg-2 border border-neutral-800/50
+              className={`group p-5 rounded-xl bg-bg-2 border border-[var(--color-card-border)]
                          hover:border-accent/20 hover:bg-bg-3 transition-all duration-300
                          ${skill.span}`}
             >
               {/* Name */}
-              <h3 className="text-sm font-medium text-white mb-2 group-hover:text-accent transition-colors duration-200">
+              <h3 className="text-sm font-medium text-[var(--color-text)] mb-2 group-hover:text-accent transition-colors duration-200">
                 {skill.name}
               </h3>
 
               {/* Category */}
-              <span className="text-[10px] tracking-widest uppercase text-neutral-600 font-medium">
+              <span className="text-[10px] tracking-widest uppercase text-[var(--color-text-faint)] font-medium">
                 {skill.category}
               </span>
 
               {/* Description */}
-              <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+              <p className="mt-2 text-xs text-[var(--color-text-muted)] leading-relaxed">
                 {skill.description}
               </p>
             </div>

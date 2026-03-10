@@ -6,6 +6,7 @@ import Leadership from "../components/Leadership";
 import Certificates from "../components/Certificates";
 import Updates from "../components/Updates";
 import Contact from "../components/Contact";
+import Navbar from "../components/Navbar";
 import { trackPageView } from "../services/api";
 
 function Home() {
@@ -14,7 +15,7 @@ function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="pb-24">
       <Hero />
       <About />
       <Skills />
@@ -22,6 +23,7 @@ function Home() {
       <Certificates />
       <Updates />
       <Contact />
+      <Navbar />
     </main>
   );
 }

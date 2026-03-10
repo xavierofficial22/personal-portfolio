@@ -32,7 +32,7 @@ function Leadership() {
             03
           </span>
           <div className="w-8 h-px bg-accent/40" />
-          <span className="text-xs tracking-[0.25em] uppercase text-neutral-500 font-medium">
+          <span className="text-xs tracking-[0.25em] uppercase text-[var(--color-text-muted)] font-medium">
             Leadership & Activities
           </span>
         </div>
@@ -43,7 +43,7 @@ function Leadership() {
         </h2>
 
         {/* Roles */}
-        <div className="divide-y divide-neutral-800/50">
+        <div className="divide-y divide-[var(--color-divide)]">
           {roles.map((role) => (
             <div
               key={role.title}
@@ -54,17 +54,17 @@ function Leadership() {
                 <span className="text-sm font-medium text-accent tracking-wide">
                   {role.period}
                 </span>
-                <span className="text-[11px] text-neutral-600 uppercase tracking-widest">
+                <span className="text-[11px] text-[var(--color-text-faint)] uppercase tracking-widest">
                   JPCS — DWCC
                 </span>
               </div>
 
               {/* Right — details */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-accent transition-colors duration-200">
+                <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1 group-hover:text-accent transition-colors duration-200">
                   {role.title}
                 </h3>
-                <p className="text-xs text-neutral-500 mb-5">
+                <p className="text-xs text-[var(--color-text-muted)] mb-5">
                   {role.organization}
                 </p>
 
@@ -72,7 +72,7 @@ function Leadership() {
                   {role.bullets.map((bullet, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-sm text-neutral-400 leading-relaxed"
+                      className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)] leading-relaxed"
                     >
                       <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent/40" />
                       {bullet}
