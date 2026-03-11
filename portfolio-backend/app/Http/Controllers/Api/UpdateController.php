@@ -4,12 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Update;
+use App\Services\SupabaseStorage;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
 {
+    private SupabaseStorage $storage;
+
+    public function __construct(SupabaseStorage $storage)
+    {
+        $this->storage = $storage;
+    }
+
     // Public: Only show updates from the last 24 hours
     public function index()
     {
@@ -42,8 +49,7 @@ class UpdateController extends Controller
         $imagePaths = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
-                $path = $file->store('updates', 'public');
-                $imagePaths[] = '/storage/' . $path;
+                $imagePaths[] = $this->storage->upload($file, 'posts');
             }
         }
 
@@ -83,17 +89,15 @@ class UpdateController extends Controller
         }
 
         if ($request->hasFile('images')) {
-            // Delete old images
+            // Delete old images from Supabase
             if ($update->images) {
                 foreach ($update->images as $oldImage) {
-                    $oldPath = str_replace('/storage/', '', $oldImage);
-                    Storage::disk('public')->delete($oldPath);
+                    $this->storage->delete($oldImage);
                 }
             }
             $imagePaths = [];
             foreach ($request->file('images') as $file) {
-                $path = $file->store('updates', 'public');
-                $imagePaths[] = '/storage/' . $path;
+                $imagePaths[] = $this->storage->upload($file, 'posts');
             }
             $data['images'] = $imagePaths;
         }
@@ -107,11 +111,10 @@ class UpdateController extends Controller
     {
         $update = Update::findOrFail($id);
 
-        // Delete associated images
+        // Delete associated images from Supabase
         if ($update->images) {
             foreach ($update->images as $img) {
-                $path = str_replace('/storage/', '', $img);
-                Storage::disk('public')->delete($path);
+                $this->storage->delete($img);
             }
         }
 

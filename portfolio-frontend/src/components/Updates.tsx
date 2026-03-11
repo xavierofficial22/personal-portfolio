@@ -41,8 +41,12 @@ function Updates() {
     return "Today";
   };
 
+  // Resolve image URL: full URLs pass through, relative paths get BACKEND_URL prepended
+  const resolveImg = (img: string) =>
+    img.startsWith("http") ? img : `${BACKEND_URL}${img}`;
+
   const openLightbox = (images: string[], index: number) => {
-    setLightboxImages(images.map((img) => `${BACKEND_URL}${img}`));
+    setLightboxImages(images.map(resolveImg));
     setLightboxIndex(index);
   };
 
@@ -55,7 +59,7 @@ function Updates() {
           onClick={() => openLightbox(images, 0)}
         >
           <img
-            src={`${BACKEND_URL}${images[0]}`}
+            src={resolveImg(images[0])}
             alt=""
             className="w-full max-h-[420px] object-cover hover:opacity-90 transition-opacity"
           />
@@ -68,7 +72,7 @@ function Updates() {
           {images.map((img, i) => (
             <img
               key={i}
-              src={`${BACKEND_URL}${img}`}
+              src={resolveImg(img)}
               alt=""
               onClick={() => openLightbox(images, i)}
               className="w-full h-[220px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
@@ -81,7 +85,7 @@ function Updates() {
       return (
         <div className="border-t border-[var(--color-card-border)] grid grid-cols-2 gap-0.5">
           <img
-            src={`${BACKEND_URL}${images[0]}`}
+            src={resolveImg(images[0])}
             alt=""
             onClick={() => openLightbox(images, 0)}
             className="col-span-2 w-full h-[260px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
@@ -89,7 +93,7 @@ function Updates() {
           {images.slice(1).map((img, i) => (
             <img
               key={i}
-              src={`${BACKEND_URL}${img}`}
+              src={resolveImg(img)}
               alt=""
               onClick={() => openLightbox(images, i + 1)}
               className="w-full h-[180px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
@@ -110,7 +114,7 @@ function Updates() {
             onClick={() => openLightbox(images, i)}
           >
             <img
-              src={`${BACKEND_URL}${img}`}
+              src={resolveImg(img)}
               alt=""
               className="w-full h-[180px] object-cover hover:opacity-90 transition-opacity"
             />

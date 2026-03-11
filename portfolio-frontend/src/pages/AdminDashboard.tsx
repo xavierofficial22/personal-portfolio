@@ -14,6 +14,9 @@ import {
   getMetrics,
   BACKEND_URL,
 } from "../services/api";
+
+const resolveImg = (img: string) =>
+  img.startsWith("http") ? img : `${BACKEND_URL}${img}`;
 import {
   LogOut,
   Plus,
@@ -594,7 +597,7 @@ function UpdatesPanel() {
                     key={i}
                     onClick={() => {
                       setLightboxImages(
-                        post.images!.map((im) => `${BACKEND_URL}${im}`),
+                        post.images!.map((im) => resolveImg(im)),
                       );
                       setLightboxIndex(i);
                     }}
@@ -607,7 +610,7 @@ function UpdatesPanel() {
                     }`}
                   >
                     <img
-                      src={`${BACKEND_URL}${img}`}
+                      src={resolveImg(img)}
                       alt={`${post.title} ${i + 1}`}
                       className="w-full h-[250px] object-cover hover:opacity-90 transition-opacity"
                     />
@@ -706,7 +709,7 @@ function PostComposer({
   const [showCategoryInput, setShowCategoryInput] = useState(false);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>(
-    initial?.images ? initial.images.map((img) => `${BACKEND_URL}${img}`) : [],
+    initial?.images ? initial.images.map((img) => resolveImg(img)) : [],
   );
   const [saving, setSaving] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
